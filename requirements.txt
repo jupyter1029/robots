@@ -1,0 +1,5 @@
+jupyterhub-simplespawner
+jupyterhub-dummyauthenticator
+robotframework-puppeteerlibrary
+robotframework-requests
+robotframework
