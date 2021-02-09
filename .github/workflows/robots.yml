@@ -37,5 +37,6 @@ jobs:
     - name: Upload Artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v2
+      with:
         name: robot-report
         path: reports/
