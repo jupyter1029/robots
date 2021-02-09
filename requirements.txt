@@ -1,3 +1,5 @@
+jupyter_server
+nbclassic
 jupyterhub-simplespawner
 jupyterhub-dummyauthenticator
 robotframework-puppeteerlibrary
