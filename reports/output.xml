@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.0 (Python 3.8.8 on linux)" generated="20210328 00:56:43.948" rpa="false" schemaversion="2">
+<robot generator="Robot 4.0 (Python 3.8.8 on linux)" generated="20210329 00:58:01.020" rpa="false" schemaversion="2">
 <suite id="s1" name="Atest" source="/home/runner/work/robots/robots/atest">
 <suite id="s1-s1" name="Jupyter Server" source="/home/runner/work/robots/robots/atest/jupyter_server">
 <suite id="s1-s1-s1" name="JupyterServerCLI" source="/home/runner/work/robots/robots/atest/jupyter_server/JupyterServerCLI.robot">
@@ -10,8 +10,8 @@
 <var>${extra_args}</var>
 <arg>--ServerApp.token=</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20210328 00:56:44.048" level="INFO">${extra_args} = ['--ServerApp.token=', '']</msg>
-<status status="PASS" starttime="20210328 00:56:44.047" endtime="20210328 00:56:44.048"/>
+<msg timestamp="20210329 00:58:01.113" level="INFO">${extra_args} = ['--ServerApp.token=', '']</msg>
+<status status="PASS" starttime="20210329 00:58:01.112" endtime="20210329 00:58:01.113"/>
 </kw>
 <kw name="Start Process" library="Process">
 <var>${jupyter_server_process}</var>
@@ -20,18 +20,18 @@
 <arg>@{extra_args}</arg>
 <arg>stderr=STDOUT</arg>
 <doc>Starts a new process on background.</doc>
-<msg timestamp="20210328 00:56:44.049" level="INFO">Starting process:
+<msg timestamp="20210329 00:58:01.113" level="INFO">Starting process:
 jupyter-server --ServerApp.port=9999 --ServerApp.token= ""</msg>
-<msg timestamp="20210328 00:56:44.052" level="INFO">${jupyter_server_process} = 1</msg>
-<status status="PASS" starttime="20210328 00:56:44.048" endtime="20210328 00:56:44.052"/>
+<msg timestamp="20210329 00:58:01.118" level="INFO">${jupyter_server_process} = 1</msg>
+<status status="PASS" starttime="20210329 00:58:01.113" endtime="20210329 00:58:01.118"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${jupyter_server_process}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20210328 00:56:44.053" level="INFO">${jupyter_server_process} = 1</msg>
-<status status="PASS" starttime="20210328 00:56:44.053" endtime="20210328 00:56:44.053"/>
+<msg timestamp="20210329 00:58:01.119" level="INFO">${jupyter_server_process} = 1</msg>
+<status status="PASS" starttime="20210329 00:58:01.118" endtime="20210329 00:58:01.119"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:44.047" endtime="20210328 00:56:44.053"/>
+<status status="PASS" starttime="20210329 00:58:01.112" endtime="20210329 00:58:01.119"/>
 </kw>
 <kw name="Check Server Status" library="Variables">
 <arg>http://127.0.0.1:9999</arg>
@@ -41,62 +41,62 @@ jupyter-server --ServerApp.port=9999 --ServerApp.token= ""</msg>
 <arg>max_retries=10</arg>
 <arg>disable_warnings=${True}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20210328 00:56:44.055" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:9999, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210328 00:56:44.054" endtime="20210328 00:56:44.055"/>
+<msg timestamp="20210329 00:58:01.120" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:9999, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210329 00:58:01.120" endtime="20210329 00:58:01.121"/>
 </kw>
 <kw name="Get On Session" library="RequestsLibrary">
 <arg>jupyter-server</arg>
 <arg>/api/status</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20210328 00:56:47.069" level="INFO">GET Request : url=http://127.0.0.1:9999/api/status 
+<msg timestamp="20210329 00:58:02.532" level="INFO">GET Request : url=http://127.0.0.1:9999/api/status 
  path_url=/api/status 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20210328 00:56:47.069" level="INFO">GET Response : url=http://127.0.0.1:9999/api/status 
+<msg timestamp="20210329 00:58:02.533" level="INFO">GET Response : url=http://127.0.0.1:9999/api/status 
  status=200, reason=OK 
- headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Sun, 28 Mar 2021 00:56:47 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"66ee5e57a366cdb5e1f09ceb0082d121d165edb9"', 'Content-Length': '122'} 
- body={"connections": 0, "kernels": 0, "last_activity": "2021-03-28T00:56:45.648032Z", "started": "2021-03-28T00:56:45.648032Z"} 
+ headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Mon, 29 Mar 2021 00:58:02 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"8fce179341624a9e2e757e822bf3fee6f244f704"', 'Content-Length': '122'} 
+ body={"connections": 0, "kernels": 0, "last_activity": "2021-03-29T00:58:02.271887Z", "started": "2021-03-29T00:58:02.271887Z"} 
  </msg>
-<status status="PASS" starttime="20210328 00:56:44.055" endtime="20210328 00:56:47.069"/>
+<status status="PASS" starttime="20210329 00:58:01.121" endtime="20210329 00:58:02.533"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:44.054" endtime="20210328 00:56:47.069"/>
+<status status="PASS" starttime="20210329 00:58:01.119" endtime="20210329 00:58:02.533"/>
 </kw>
 <kw name="Teardown Jupyter Server" library="Variables" type="TEARDOWN">
 <kw name="Terminate Process" library="Process">
 <var>${result}</var>
 <arg>${jupyter_server_process}</arg>
 <doc>Stops the process gracefully or forcefully.</doc>
-<msg timestamp="20210328 00:56:47.070" level="INFO">Gracefully terminating process.</msg>
-<msg timestamp="20210328 00:56:47.171" level="INFO">Process completed.</msg>
-<msg timestamp="20210328 00:56:47.171" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20210328 00:56:47.070" endtime="20210328 00:56:47.171"/>
+<msg timestamp="20210329 00:58:02.534" level="INFO">Gracefully terminating process.</msg>
+<msg timestamp="20210329 00:58:02.635" level="INFO">Process completed.</msg>
+<msg timestamp="20210329 00:58:02.635" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20210329 00:58:02.534" endtime="20210329 00:58:02.635"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${result.stdout}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20210328 00:56:47.173" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+<msg timestamp="20210329 00:58:02.637" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
   warnings.warn(warn_msg, FutureWarning)
-[I 2021-03-28 00:56:45.042 ServerApp] Writing notebook server cookie secret to /home/runner/.local/share/jupyter/runtime/jupyter_cookie_secret
-[I 2021-03-28 00:56:45.642 ServerApp] nbclassic | extension was successfully linked.
-[W 2021-03-28 00:56:45.658 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
-[I 2021-03-28 00:56:45.663 ServerApp] nbclassic | extension was successfully loaded.
-[I 2021-03-28 00:56:45.663 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
-[I 2021-03-28 00:56:45.663 ServerApp] Jupyter Server 1.5.1 is running at:
-[I 2021-03-28 00:56:45.663 ServerApp] http://localhost:9999/
-[I 2021-03-28 00:56:45.663 ServerApp]  or http://127.0.0.1:9999/
-[I 2021-03-28 00:56:45.664 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[C 2021-03-28 00:56:47.070 ServerApp] received signal 15, stopping
-[I 2021-03-28 00:56:47.070 ServerApp] Shutting down 0 kernels
-[I 2021-03-28 00:56:47.071 ServerApp] Shutting down 0 terminals</msg>
-<status status="PASS" starttime="20210328 00:56:47.171" endtime="20210328 00:56:47.173"/>
+[I 2021-03-29 00:58:01.741 ServerApp] Writing notebook server cookie secret to /home/runner/.local/share/jupyter/runtime/jupyter_cookie_secret
+[I 2021-03-29 00:58:02.266 ServerApp] nbclassic | extension was successfully linked.
+[W 2021-03-29 00:58:02.282 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
+[I 2021-03-29 00:58:02.287 ServerApp] nbclassic | extension was successfully loaded.
+[I 2021-03-29 00:58:02.287 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
+[I 2021-03-29 00:58:02.287 ServerApp] Jupyter Server 1.5.1 is running at:
+[I 2021-03-29 00:58:02.287 ServerApp] http://localhost:9999/
+[I 2021-03-29 00:58:02.287 ServerApp]  or http://127.0.0.1:9999/
+[I 2021-03-29 00:58:02.287 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2021-03-29 00:58:02.534 ServerApp] received signal 15, stopping
+[I 2021-03-29 00:58:02.535 ServerApp] Shutting down 0 kernels
+[I 2021-03-29 00:58:02.535 ServerApp] Shutting down 0 terminals</msg>
+<status status="PASS" starttime="20210329 00:58:02.636" endtime="20210329 00:58:02.638"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:47.069" endtime="20210328 00:56:47.174"/>
+<status status="PASS" starttime="20210329 00:58:02.533" endtime="20210329 00:58:02.638"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:44.046" endtime="20210328 00:56:47.174"/>
+<status status="PASS" starttime="20210329 00:58:01.111" endtime="20210329 00:58:02.638"/>
 </test>
-<status status="PASS" starttime="20210328 00:56:43.973" endtime="20210328 00:56:47.175"/>
+<status status="PASS" starttime="20210329 00:58:01.043" endtime="20210329 00:58:02.639"/>
 </suite>
 <suite id="s1-s1-s2" name="Nbclassic" source="/home/runner/work/robots/robots/atest/jupyter_server/Nbclassic.robot">
 <test id="s1-s1-s2-t1" name="Test Entrypoint">
@@ -106,8 +106,8 @@ jupyter-server --ServerApp.port=9999 --ServerApp.token= ""</msg>
 <arg>--ServerApp.token=</arg>
 <arg>--no-browser</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20210328 00:56:47.305" level="INFO">${extra_args} = ['--ServerApp.token=', '--no-browser']</msg>
-<status status="PASS" starttime="20210328 00:56:47.305" endtime="20210328 00:56:47.305"/>
+<msg timestamp="20210329 00:58:02.760" level="INFO">${extra_args} = ['--ServerApp.token=', '--no-browser']</msg>
+<status status="PASS" starttime="20210329 00:58:02.760" endtime="20210329 00:58:02.760"/>
 </kw>
 <kw name="Start Process" library="Process">
 <var>${jupyter_server_process}</var>
@@ -116,18 +116,18 @@ jupyter-server --ServerApp.port=9999 --ServerApp.token= ""</msg>
 <arg>@{extra_args}</arg>
 <arg>stderr=STDOUT</arg>
 <doc>Starts a new process on background.</doc>
-<msg timestamp="20210328 00:56:47.306" level="INFO">Starting process:
+<msg timestamp="20210329 00:58:02.761" level="INFO">Starting process:
 jupyter-nbclassic --ServerApp.token= --no-browser</msg>
-<msg timestamp="20210328 00:56:47.310" level="INFO">${jupyter_server_process} = 2</msg>
-<status status="PASS" starttime="20210328 00:56:47.305" endtime="20210328 00:56:47.310"/>
+<msg timestamp="20210329 00:58:02.764" level="INFO">${jupyter_server_process} = 2</msg>
+<status status="PASS" starttime="20210329 00:58:02.760" endtime="20210329 00:58:02.764"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${jupyter_server_process}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20210328 00:56:47.311" level="INFO">${jupyter_server_process} = 2</msg>
-<status status="PASS" starttime="20210328 00:56:47.311" endtime="20210328 00:56:47.311"/>
+<msg timestamp="20210329 00:58:02.765" level="INFO">${jupyter_server_process} = 2</msg>
+<status status="PASS" starttime="20210329 00:58:02.764" endtime="20210329 00:58:02.765"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:47.304" endtime="20210328 00:56:47.312"/>
+<status status="PASS" starttime="20210329 00:58:02.759" endtime="20210329 00:58:02.765"/>
 </kw>
 <kw name="Check Server Status" library="Variables">
 <kw name="Create Session" library="RequestsLibrary">
@@ -136,59 +136,59 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>max_retries=10</arg>
 <arg>disable_warnings=${True}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20210328 00:56:47.313" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:8888, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210328 00:56:47.312" endtime="20210328 00:56:47.313"/>
+<msg timestamp="20210329 00:58:02.766" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:8888, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210329 00:58:02.766" endtime="20210329 00:58:02.767"/>
 </kw>
 <kw name="Get On Session" library="RequestsLibrary">
 <arg>jupyter-server</arg>
 <arg>/api/status</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20210328 00:56:47.922" level="INFO">GET Request : url=http://127.0.0.1:8888/api/status 
+<msg timestamp="20210329 00:58:03.377" level="INFO">GET Request : url=http://127.0.0.1:8888/api/status 
  path_url=/api/status 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20210328 00:56:47.922" level="INFO">GET Response : url=http://127.0.0.1:8888/api/status 
+<msg timestamp="20210329 00:58:03.377" level="INFO">GET Response : url=http://127.0.0.1:8888/api/status 
  status=200, reason=OK 
- headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Sun, 28 Mar 2021 00:56:47 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"6955d278d7a6108db9e015b7f7577dab6444f631"', 'Content-Length': '122'} 
- body={"connections": 0, "kernels": 0, "last_activity": "2021-03-28T00:56:47.874425Z", "started": "2021-03-28T00:56:47.874425Z"} 
+ headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Mon, 29 Mar 2021 00:58:03 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"5f4451d97192934723acd300798e1820c4019a50"', 'Content-Length': '122'} 
+ body={"connections": 0, "kernels": 0, "last_activity": "2021-03-29T00:58:03.281537Z", "started": "2021-03-29T00:58:03.281537Z"} 
  </msg>
-<status status="PASS" starttime="20210328 00:56:47.314" endtime="20210328 00:56:47.922"/>
+<status status="PASS" starttime="20210329 00:58:02.767" endtime="20210329 00:58:03.377"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:47.312" endtime="20210328 00:56:47.923"/>
+<status status="PASS" starttime="20210329 00:58:02.765" endtime="20210329 00:58:03.377"/>
 </kw>
 <kw name="Teardown Jupyter Server" library="Variables" type="TEARDOWN">
 <kw name="Terminate Process" library="Process">
 <var>${result}</var>
 <arg>${jupyter_server_process}</arg>
 <doc>Stops the process gracefully or forcefully.</doc>
-<msg timestamp="20210328 00:56:47.924" level="INFO">Gracefully terminating process.</msg>
-<msg timestamp="20210328 00:56:48.025" level="INFO">Process completed.</msg>
-<msg timestamp="20210328 00:56:48.025" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20210328 00:56:47.924" endtime="20210328 00:56:48.025"/>
+<msg timestamp="20210329 00:58:03.379" level="INFO">Gracefully terminating process.</msg>
+<msg timestamp="20210329 00:58:03.480" level="INFO">Process completed.</msg>
+<msg timestamp="20210329 00:58:03.480" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20210329 00:58:03.379" endtime="20210329 00:58:03.480"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${result.stdout}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20210328 00:56:48.027" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+<msg timestamp="20210329 00:58:03.481" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
   warnings.warn(warn_msg, FutureWarning)
-[I 2021-03-28 00:56:47.868 ServerApp] nbclassic | extension was successfully linked.
-[W 2021-03-28 00:56:47.883 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
-[I 2021-03-28 00:56:47.889 ServerApp] nbclassic | extension was successfully loaded.
-[I 2021-03-28 00:56:47.890 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
-[I 2021-03-28 00:56:47.890 ServerApp] Jupyter Server 1.5.1 is running at:
-[I 2021-03-28 00:56:47.890 ServerApp] http://localhost:8888/tree
-[I 2021-03-28 00:56:47.890 ServerApp]  or http://127.0.0.1:8888/tree
-[I 2021-03-28 00:56:47.890 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[C 2021-03-28 00:56:47.924 ServerApp] received signal 15, stopping
-[I 2021-03-28 00:56:47.925 ServerApp] Shutting down 0 kernels
-[I 2021-03-28 00:56:47.925 ServerApp] Shutting down 0 terminals</msg>
-<status status="PASS" starttime="20210328 00:56:48.026" endtime="20210328 00:56:48.027"/>
+[I 2021-03-29 00:58:03.275 ServerApp] nbclassic | extension was successfully linked.
+[W 2021-03-29 00:58:03.290 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
+[I 2021-03-29 00:58:03.295 ServerApp] nbclassic | extension was successfully loaded.
+[I 2021-03-29 00:58:03.296 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
+[I 2021-03-29 00:58:03.296 ServerApp] Jupyter Server 1.5.1 is running at:
+[I 2021-03-29 00:58:03.296 ServerApp] http://localhost:8888/tree
+[I 2021-03-29 00:58:03.296 ServerApp]  or http://127.0.0.1:8888/tree
+[I 2021-03-29 00:58:03.296 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2021-03-29 00:58:03.379 ServerApp] received signal 15, stopping
+[I 2021-03-29 00:58:03.379 ServerApp] Shutting down 0 kernels
+[I 2021-03-29 00:58:03.379 ServerApp] Shutting down 0 terminals</msg>
+<status status="PASS" starttime="20210329 00:58:03.480" endtime="20210329 00:58:03.482"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:47.923" endtime="20210328 00:56:48.027"/>
+<status status="PASS" starttime="20210329 00:58:03.378" endtime="20210329 00:58:03.482"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:47.304" endtime="20210328 00:56:48.027"/>
+<status status="PASS" starttime="20210329 00:58:02.759" endtime="20210329 00:58:03.482"/>
 </test>
 <test id="s1-s1-s2-t2" name="Test Landing Page">
 <kw name="Get Variable Value" library="BuiltIn">
@@ -196,15 +196,15 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>${HEADLESS}</arg>
 <arg>${True}</arg>
 <doc>Returns variable value or ``default`` if the variable does not exist.</doc>
-<msg timestamp="20210328 00:56:48.030" level="INFO">${HEADLESS} = True</msg>
-<status status="PASS" starttime="20210328 00:56:48.028" endtime="20210328 00:56:48.030"/>
+<msg timestamp="20210329 00:58:03.484" level="INFO">${HEADLESS} = True</msg>
+<status status="PASS" starttime="20210329 00:58:03.483" endtime="20210329 00:58:03.485"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>&amp;{options}</var>
 <arg>headless=${HEADLESS}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20210328 00:56:48.031" level="INFO">&amp;{options} = { headless=True }</msg>
-<status status="PASS" starttime="20210328 00:56:48.031" endtime="20210328 00:56:48.031"/>
+<msg timestamp="20210329 00:58:03.485" level="INFO">&amp;{options} = { headless=True }</msg>
+<status status="PASS" starttime="20210329 00:58:03.485" endtime="20210329 00:58:03.485"/>
 </kw>
 <kw name="Start Nbclassic">
 <kw name="Set Variable" library="BuiltIn">
@@ -212,8 +212,8 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>--ServerApp.token=</arg>
 <arg>--no-browser</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20210328 00:56:48.032" level="INFO">${extra_args} = ['--ServerApp.token=', '--no-browser']</msg>
-<status status="PASS" starttime="20210328 00:56:48.032" endtime="20210328 00:56:48.032"/>
+<msg timestamp="20210329 00:58:03.486" level="INFO">${extra_args} = ['--ServerApp.token=', '--no-browser']</msg>
+<status status="PASS" starttime="20210329 00:58:03.486" endtime="20210329 00:58:03.486"/>
 </kw>
 <kw name="Start Process" library="Process">
 <var>${jupyter_server_process}</var>
@@ -222,18 +222,18 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>@{extra_args}</arg>
 <arg>stderr=STDOUT</arg>
 <doc>Starts a new process on background.</doc>
-<msg timestamp="20210328 00:56:48.033" level="INFO">Starting process:
+<msg timestamp="20210329 00:58:03.487" level="INFO">Starting process:
 jupyter-nbclassic --ServerApp.token= --no-browser</msg>
-<msg timestamp="20210328 00:56:48.037" level="INFO">${jupyter_server_process} = 3</msg>
-<status status="PASS" starttime="20210328 00:56:48.032" endtime="20210328 00:56:48.037"/>
+<msg timestamp="20210329 00:58:03.491" level="INFO">${jupyter_server_process} = 3</msg>
+<status status="PASS" starttime="20210329 00:58:03.486" endtime="20210329 00:58:03.491"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${jupyter_server_process}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20210328 00:56:48.038" level="INFO">${jupyter_server_process} = 3</msg>
-<status status="PASS" starttime="20210328 00:56:48.037" endtime="20210328 00:56:48.038"/>
+<msg timestamp="20210329 00:58:03.493" level="INFO">${jupyter_server_process} = 3</msg>
+<status status="PASS" starttime="20210329 00:58:03.492" endtime="20210329 00:58:03.493"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:48.032" endtime="20210328 00:56:48.038"/>
+<status status="PASS" starttime="20210329 00:58:03.485" endtime="20210329 00:58:03.494"/>
 </kw>
 <kw name="Check Server Status" library="Variables">
 <kw name="Create Session" library="RequestsLibrary">
@@ -242,85 +242,85 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>max_retries=10</arg>
 <arg>disable_warnings=${True}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20210328 00:56:48.039" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:8888, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210328 00:56:48.039" endtime="20210328 00:56:48.040"/>
+<msg timestamp="20210329 00:58:03.497" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:8888, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210329 00:58:03.495" endtime="20210329 00:58:03.498"/>
 </kw>
 <kw name="Get On Session" library="RequestsLibrary">
 <arg>jupyter-server</arg>
 <arg>/api/status</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20210328 00:56:48.649" level="INFO">GET Request : url=http://127.0.0.1:8888/api/status 
+<msg timestamp="20210329 00:58:04.108" level="INFO">GET Request : url=http://127.0.0.1:8888/api/status 
  path_url=/api/status 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20210328 00:56:48.649" level="INFO">GET Response : url=http://127.0.0.1:8888/api/status 
+<msg timestamp="20210329 00:58:04.108" level="INFO">GET Response : url=http://127.0.0.1:8888/api/status 
  status=200, reason=OK 
- headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Sun, 28 Mar 2021 00:56:48 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"a497a74c7c838a6d0e4e03cb677c0768f4a53ff2"', 'Content-Length': '122'} 
- body={"connections": 0, "kernels": 0, "last_activity": "2021-03-28T00:56:48.585714Z", "started": "2021-03-28T00:56:48.585714Z"} 
+ headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Mon, 29 Mar 2021 00:58:04 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"e36bb05e3e1d9a5dbcb70cddcec02babaee8d708"', 'Content-Length': '122'} 
+ body={"connections": 0, "kernels": 0, "last_activity": "2021-03-29T00:58:04.017949Z", "started": "2021-03-29T00:58:04.017949Z"} 
  </msg>
-<status status="PASS" starttime="20210328 00:56:48.040" endtime="20210328 00:56:48.649"/>
+<status status="PASS" starttime="20210329 00:58:03.498" endtime="20210329 00:58:04.108"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:48.038" endtime="20210328 00:56:48.649"/>
+<status status="PASS" starttime="20210329 00:58:03.494" endtime="20210329 00:58:04.109"/>
 </kw>
 <kw name="Open Browser" library="PuppeteerLibrary">
 <arg>http://127.0.0.1:8888</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the specific ``url``.</doc>
-<msg timestamp="20210328 00:56:48.650" level="INFO">http://127.0.0.1:8888</msg>
-<msg timestamp="20210328 00:56:52.867" level="INFO">0%|          | 0/108773488 [00:00&lt;?, ?it/s]  2%|1         | 1925120/108773488 [00:00&lt;00:05, 18772539.42it/s] 13%|#3        | 14336000/108773488 [00:00&lt;00:01, 80089740.13it/s] 23%|##3       | 25169920/108773488 [00:00&lt;00:01, 79634849.59it/s] 33%|###3      | 36075520/108773488 [00:00&lt;00:00, 89967825.27it/s] 46%|####6     | 50339840/108773488 [00:00&lt;00:00, 105201500.24it/s] 62%|######1   | 67112960/108773488 [00:00&lt;00:00, 119372353.17it/s] 77%|#######7  | 83896320/108773488 [00:00&lt;00:00, 120678535.40it/s] 88%|########8 | 95969280/108773488 [00:01&lt;00:00, 76219830.48it/s] 100%|##########| 108773488/108773488 [00:01&lt;00:00, 92707742.09it/s]</msg>
-<status status="PASS" starttime="20210328 00:56:48.650" endtime="20210328 00:56:52.867"/>
+<msg timestamp="20210329 00:58:04.110" level="INFO">http://127.0.0.1:8888</msg>
+<msg timestamp="20210329 00:58:07.451" level="INFO">0%|          | 0/108773488 [00:00&lt;?, ?it/s] 18%|#8        | 20019200/108773488 [00:00&lt;00:00, 200158308.65it/s] 37%|###6      | 40038400/108773488 [00:00&lt;00:00, 190846549.94it/s] 54%|#####4    | 59156480/108773488 [00:00&lt;00:00, 165746012.44it/s] 73%|#######3  | 79943680/108773488 [00:00&lt;00:00, 180709035.66it/s] 90%|######### | 98375680/108773488 [00:00&lt;00:00, 179646632.18it/s]100%|##########| 108773488/108773488 [00:00&lt;00:00, 184075712.27it/s]</msg>
+<status status="PASS" starttime="20210329 00:58:04.109" endtime="20210329 00:58:07.451"/>
 </kw>
 <kw name="Verify Classic Notebook Landing Page" library="Keywords">
 <kw name="Wait Until Element Is Visible" library="PuppeteerLibrary">
 <arg>id:ipython_notebook</arg>
 <doc>Waits until ``locator`` element is displayed on web page.</doc>
-<status status="PASS" starttime="20210328 00:56:52.868" endtime="20210328 00:56:53.011"/>
+<status status="PASS" starttime="20210329 00:58:07.452" endtime="20210329 00:58:07.573"/>
 </kw>
 <kw name="Capture Page Screenshot" library="PuppeteerLibrary">
 <doc>Capture current web page as image png file.</doc>
-<msg timestamp="20210328 00:56:53.165" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="puppeteer-screenshot-1.png"&gt;&lt;img src="puppeteer-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210328 00:56:53.011" endtime="20210328 00:56:53.166"/>
+<msg timestamp="20210329 00:58:07.710" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="puppeteer-screenshot-1.png"&gt;&lt;img src="puppeteer-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210329 00:58:07.573" endtime="20210329 00:58:07.710"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:52.868" endtime="20210328 00:56:53.166"/>
+<status status="PASS" starttime="20210329 00:58:07.452" endtime="20210329 00:58:07.710"/>
 </kw>
 <kw name="Close Browser" library="PuppeteerLibrary">
 <doc>Closes the current browser</doc>
-<status status="PASS" starttime="20210328 00:56:53.166" endtime="20210328 00:56:53.192"/>
+<status status="PASS" starttime="20210329 00:58:07.710" endtime="20210329 00:58:07.740"/>
 </kw>
 <kw name="Teardown Jupyter Server" library="Variables" type="TEARDOWN">
 <kw name="Terminate Process" library="Process">
 <var>${result}</var>
 <arg>${jupyter_server_process}</arg>
 <doc>Stops the process gracefully or forcefully.</doc>
-<msg timestamp="20210328 00:56:53.193" level="INFO">Gracefully terminating process.</msg>
-<msg timestamp="20210328 00:56:53.293" level="INFO">Process completed.</msg>
-<msg timestamp="20210328 00:56:53.294" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20210328 00:56:53.192" endtime="20210328 00:56:53.294"/>
+<msg timestamp="20210329 00:58:07.741" level="INFO">Gracefully terminating process.</msg>
+<msg timestamp="20210329 00:58:07.844" level="INFO">Process completed.</msg>
+<msg timestamp="20210329 00:58:07.844" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20210329 00:58:07.741" endtime="20210329 00:58:07.844"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${result.stdout}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20210328 00:56:53.296" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+<msg timestamp="20210329 00:58:07.846" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
   warnings.warn(warn_msg, FutureWarning)
-[I 2021-03-28 00:56:48.579 ServerApp] nbclassic | extension was successfully linked.
-[W 2021-03-28 00:56:48.594 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
-[I 2021-03-28 00:56:48.601 ServerApp] nbclassic | extension was successfully loaded.
-[I 2021-03-28 00:56:48.601 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
-[I 2021-03-28 00:56:48.601 ServerApp] Jupyter Server 1.5.1 is running at:
-[I 2021-03-28 00:56:48.601 ServerApp] http://localhost:8888/tree
-[I 2021-03-28 00:56:48.601 ServerApp]  or http://127.0.0.1:8888/tree
-[I 2021-03-28 00:56:48.601 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[I 2021-03-28 00:56:52.604 ServerApp] 302 GET / (127.0.0.1) 0.51ms
-[C 2021-03-28 00:56:53.192 ServerApp] received signal 15, stopping
-[I 2021-03-28 00:56:53.193 ServerApp] Shutting down 0 kernels
-[I 2021-03-28 00:56:53.193 ServerApp] Shutting down 0 terminals</msg>
-<status status="PASS" starttime="20210328 00:56:53.294" endtime="20210328 00:56:53.296"/>
+[I 2021-03-29 00:58:04.012 ServerApp] nbclassic | extension was successfully linked.
+[W 2021-03-29 00:58:04.026 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
+[I 2021-03-29 00:58:04.032 ServerApp] nbclassic | extension was successfully loaded.
+[I 2021-03-29 00:58:04.032 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
+[I 2021-03-29 00:58:04.032 ServerApp] Jupyter Server 1.5.1 is running at:
+[I 2021-03-29 00:58:04.032 ServerApp] http://localhost:8888/tree
+[I 2021-03-29 00:58:04.032 ServerApp]  or http://127.0.0.1:8888/tree
+[I 2021-03-29 00:58:04.032 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 2021-03-29 00:58:07.220 ServerApp] 302 GET / (127.0.0.1) 0.49ms
+[C 2021-03-29 00:58:07.741 ServerApp] received signal 15, stopping
+[I 2021-03-29 00:58:07.741 ServerApp] Shutting down 0 kernels
+[I 2021-03-29 00:58:07.741 ServerApp] Shutting down 0 terminals</msg>
+<status status="PASS" starttime="20210329 00:58:07.844" endtime="20210329 00:58:07.846"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:53.192" endtime="20210328 00:56:53.296"/>
+<status status="PASS" starttime="20210329 00:58:07.740" endtime="20210329 00:58:07.846"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:48.028" endtime="20210328 00:56:53.296"/>
+<status status="PASS" starttime="20210329 00:58:03.482" endtime="20210329 00:58:07.846"/>
 </test>
 <test id="s1-s1-s2-t3" name="Test file_to_run">
 <kw name="Get Variable Value" library="BuiltIn">
@@ -328,15 +328,15 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>${HEADLESS}</arg>
 <arg>${True}</arg>
 <doc>Returns variable value or ``default`` if the variable does not exist.</doc>
-<msg timestamp="20210328 00:56:53.300" level="INFO">${HEADLESS} = True</msg>
-<status status="PASS" starttime="20210328 00:56:53.298" endtime="20210328 00:56:53.300"/>
+<msg timestamp="20210329 00:58:07.851" level="INFO">${HEADLESS} = True</msg>
+<status status="PASS" starttime="20210329 00:58:07.848" endtime="20210329 00:58:07.851"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>&amp;{options}</var>
 <arg>headless=${HEADLESS}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20210328 00:56:53.301" level="INFO">&amp;{options} = { headless=True }</msg>
-<status status="PASS" starttime="20210328 00:56:53.300" endtime="20210328 00:56:53.301"/>
+<msg timestamp="20210329 00:58:07.852" level="INFO">&amp;{options} = { headless=True }</msg>
+<status status="PASS" starttime="20210329 00:58:07.852" endtime="20210329 00:58:07.852"/>
 </kw>
 <kw name="Start Nbclassic">
 <kw name="Set Variable" library="BuiltIn">
@@ -344,8 +344,8 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>--ServerApp.token=</arg>
 <arg>--no-browser</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20210328 00:56:53.302" level="INFO">${extra_args} = ['--ServerApp.token=', '--no-browser']</msg>
-<status status="PASS" starttime="20210328 00:56:53.302" endtime="20210328 00:56:53.302"/>
+<msg timestamp="20210329 00:58:07.854" level="INFO">${extra_args} = ['--ServerApp.token=', '--no-browser']</msg>
+<status status="PASS" starttime="20210329 00:58:07.853" endtime="20210329 00:58:07.854"/>
 </kw>
 <kw name="Start Process" library="Process">
 <var>${jupyter_server_process}</var>
@@ -354,18 +354,18 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>@{extra_args}</arg>
 <arg>stderr=STDOUT</arg>
 <doc>Starts a new process on background.</doc>
-<msg timestamp="20210328 00:56:53.302" level="INFO">Starting process:
+<msg timestamp="20210329 00:58:07.854" level="INFO">Starting process:
 jupyter-nbclassic --ServerApp.token= --no-browser</msg>
-<msg timestamp="20210328 00:56:53.307" level="INFO">${jupyter_server_process} = 4</msg>
-<status status="PASS" starttime="20210328 00:56:53.302" endtime="20210328 00:56:53.307"/>
+<msg timestamp="20210329 00:58:07.859" level="INFO">${jupyter_server_process} = 4</msg>
+<status status="PASS" starttime="20210329 00:58:07.854" endtime="20210329 00:58:07.859"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${jupyter_server_process}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20210328 00:56:53.308" level="INFO">${jupyter_server_process} = 4</msg>
-<status status="PASS" starttime="20210328 00:56:53.307" endtime="20210328 00:56:53.308"/>
+<msg timestamp="20210329 00:58:07.860" level="INFO">${jupyter_server_process} = 4</msg>
+<status status="PASS" starttime="20210329 00:58:07.859" endtime="20210329 00:58:07.860"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:53.301" endtime="20210328 00:56:53.308"/>
+<status status="PASS" starttime="20210329 00:58:07.853" endtime="20210329 00:58:07.860"/>
 </kw>
 <kw name="Check Server Status" library="Variables">
 <kw name="Create Session" library="RequestsLibrary">
@@ -374,90 +374,90 @@ jupyter-nbclassic --ServerApp.token= --no-browser</msg>
 <arg>max_retries=10</arg>
 <arg>disable_warnings=${True}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20210328 00:56:53.309" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:8888, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210328 00:56:53.309" endtime="20210328 00:56:53.310"/>
+<msg timestamp="20210329 00:58:07.861" level="INFO">Creating Session using : alias=jupyter-server, url=http://127.0.0.1:8888, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210329 00:58:07.861" endtime="20210329 00:58:07.862"/>
 </kw>
 <kw name="Get On Session" library="RequestsLibrary">
 <arg>jupyter-server</arg>
 <arg>/api/status</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20210328 00:56:53.919" level="INFO">GET Request : url=http://127.0.0.1:8888/api/status 
+<msg timestamp="20210329 00:58:08.471" level="INFO">GET Request : url=http://127.0.0.1:8888/api/status 
  path_url=/api/status 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20210328 00:56:53.919" level="INFO">GET Response : url=http://127.0.0.1:8888/api/status 
+<msg timestamp="20210329 00:58:08.471" level="INFO">GET Response : url=http://127.0.0.1:8888/api/status 
  status=200, reason=OK 
- headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Sun, 28 Mar 2021 00:56:53 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"ec7978105efea83266ab6676acd0b675e33dba7a"', 'Content-Length': '122'} 
- body={"connections": 0, "kernels": 0, "last_activity": "2021-03-28T00:56:53.854415Z", "started": "2021-03-28T00:56:53.854415Z"} 
+ headers={'Server': 'TornadoServer/6.1', 'Content-Type': 'application/json', 'Date': 'Mon, 29 Mar 2021 00:58:08 GMT', 'Content-Security-Policy': "frame-ancestors 'self'; report-uri /api/security/csp-report; default-src 'none'", 'Etag': '"8e642565dfbe8c2580fc0fd5edf99183940f495c"', 'Content-Length': '122'} 
+ body={"connections": 0, "kernels": 0, "last_activity": "2021-03-29T00:58:08.380769Z", "started": "2021-03-29T00:58:08.380769Z"} 
  </msg>
-<status status="PASS" starttime="20210328 00:56:53.310" endtime="20210328 00:56:53.920"/>
+<status status="PASS" starttime="20210329 00:58:07.862" endtime="20210329 00:58:08.471"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:53.308" endtime="20210328 00:56:53.920"/>
+<status status="PASS" starttime="20210329 00:58:07.860" endtime="20210329 00:58:08.472"/>
 </kw>
 <kw name="Open Browser" library="PuppeteerLibrary">
 <arg>http://127.0.0.1:8888</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the specific ``url``.</doc>
-<msg timestamp="20210328 00:56:53.921" level="INFO">http://127.0.0.1:8888</msg>
-<status status="PASS" starttime="20210328 00:56:53.920" endtime="20210328 00:56:54.331"/>
+<msg timestamp="20210329 00:58:08.473" level="INFO">http://127.0.0.1:8888</msg>
+<status status="PASS" starttime="20210329 00:58:08.472" endtime="20210329 00:58:08.867"/>
 </kw>
 <kw name="Verify Classic Notebook Landing Page" library="Keywords">
 <kw name="Wait Until Element Is Visible" library="PuppeteerLibrary">
 <arg>id:ipython_notebook</arg>
 <doc>Waits until ``locator`` element is displayed on web page.</doc>
-<status status="PASS" starttime="20210328 00:56:54.332" endtime="20210328 00:56:54.445"/>
+<status status="PASS" starttime="20210329 00:58:08.869" endtime="20210329 00:58:08.977"/>
 </kw>
 <kw name="Capture Page Screenshot" library="PuppeteerLibrary">
 <doc>Capture current web page as image png file.</doc>
-<msg timestamp="20210328 00:56:54.585" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="puppeteer-screenshot-2.png"&gt;&lt;img src="puppeteer-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210328 00:56:54.446" endtime="20210328 00:56:54.586"/>
+<msg timestamp="20210329 00:58:09.109" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="puppeteer-screenshot-2.png"&gt;&lt;img src="puppeteer-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210329 00:58:08.977" endtime="20210329 00:58:09.109"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:54.332" endtime="20210328 00:56:54.586"/>
+<status status="PASS" starttime="20210329 00:58:08.868" endtime="20210329 00:58:09.109"/>
 </kw>
 <kw name="Close Browser" library="PuppeteerLibrary">
 <doc>Closes the current browser</doc>
-<status status="PASS" starttime="20210328 00:56:54.586" endtime="20210328 00:56:54.599"/>
+<status status="PASS" starttime="20210329 00:58:09.109" endtime="20210329 00:58:09.128"/>
 </kw>
 <kw name="Teardown Jupyter Server" library="Variables" type="TEARDOWN">
 <kw name="Terminate Process" library="Process">
 <var>${result}</var>
 <arg>${jupyter_server_process}</arg>
 <doc>Stops the process gracefully or forcefully.</doc>
-<msg timestamp="20210328 00:56:54.600" level="INFO">Gracefully terminating process.</msg>
-<msg timestamp="20210328 00:56:54.701" level="INFO">Process completed.</msg>
-<msg timestamp="20210328 00:56:54.701" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20210328 00:56:54.600" endtime="20210328 00:56:54.701"/>
+<msg timestamp="20210329 00:58:09.129" level="INFO">Gracefully terminating process.</msg>
+<msg timestamp="20210329 00:58:09.230" level="INFO">Process completed.</msg>
+<msg timestamp="20210329 00:58:09.230" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20210329 00:58:09.129" endtime="20210329 00:58:09.230"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${result.stdout}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20210328 00:56:54.703" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+<msg timestamp="20210329 00:58:09.232" level="INFO">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
   warnings.warn(warn_msg, FutureWarning)
-[I 2021-03-28 00:56:53.848 ServerApp] nbclassic | extension was successfully linked.
-[W 2021-03-28 00:56:53.863 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
-[I 2021-03-28 00:56:53.870 ServerApp] nbclassic | extension was successfully loaded.
-[I 2021-03-28 00:56:53.870 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
-[I 2021-03-28 00:56:53.870 ServerApp] Jupyter Server 1.5.1 is running at:
-[I 2021-03-28 00:56:53.870 ServerApp] http://localhost:8888/tree
-[I 2021-03-28 00:56:53.870 ServerApp]  or http://127.0.0.1:8888/tree
-[I 2021-03-28 00:56:53.870 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[I 2021-03-28 00:56:54.099 ServerApp] 302 GET / (127.0.0.1) 0.57ms
-[C 2021-03-28 00:56:54.600 ServerApp] received signal 15, stopping
-[I 2021-03-28 00:56:54.600 ServerApp] Shutting down 0 kernels
-[I 2021-03-28 00:56:54.601 ServerApp] Shutting down 0 terminals</msg>
-<status status="PASS" starttime="20210328 00:56:54.702" endtime="20210328 00:56:54.703"/>
+[I 2021-03-29 00:58:08.374 ServerApp] nbclassic | extension was successfully linked.
+[W 2021-03-29 00:58:08.389 ServerApp] All authentication is disabled.  Anyone who can connect to this server will be able to run code.
+[I 2021-03-29 00:58:08.396 ServerApp] nbclassic | extension was successfully loaded.
+[I 2021-03-29 00:58:08.396 ServerApp] Serving notebooks from local directory: /home/runner/work/robots/robots
+[I 2021-03-29 00:58:08.396 ServerApp] Jupyter Server 1.5.1 is running at:
+[I 2021-03-29 00:58:08.396 ServerApp] http://localhost:8888/tree
+[I 2021-03-29 00:58:08.396 ServerApp]  or http://127.0.0.1:8888/tree
+[I 2021-03-29 00:58:08.396 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 2021-03-29 00:58:08.656 ServerApp] 302 GET / (127.0.0.1) 0.49ms
+[C 2021-03-29 00:58:09.129 ServerApp] received signal 15, stopping
+[I 2021-03-29 00:58:09.129 ServerApp] Shutting down 0 kernels
+[I 2021-03-29 00:58:09.129 ServerApp] Shutting down 0 terminals</msg>
+<status status="PASS" starttime="20210329 00:58:09.230" endtime="20210329 00:58:09.232"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:54.600" endtime="20210328 00:56:54.704"/>
+<status status="PASS" starttime="20210329 00:58:09.128" endtime="20210329 00:58:09.232"/>
 </kw>
-<status status="PASS" starttime="20210328 00:56:53.297" endtime="20210328 00:56:54.704"/>
+<status status="PASS" starttime="20210329 00:58:07.847" endtime="20210329 00:58:09.232"/>
 </test>
-<status status="PASS" starttime="20210328 00:56:47.177" endtime="20210328 00:56:54.705"/>
+<status status="PASS" starttime="20210329 00:58:02.640" endtime="20210329 00:58:09.233"/>
 </suite>
-<status status="PASS" starttime="20210328 00:56:43.971" endtime="20210328 00:56:54.708"/>
+<status status="PASS" starttime="20210329 00:58:01.041" endtime="20210329 00:58:09.235"/>
 </suite>
-<status status="PASS" starttime="20210328 00:56:43.949" endtime="20210328 00:56:54.710"/>
+<status status="PASS" starttime="20210329 00:58:01.021" endtime="20210329 00:58:09.236"/>
 </suite>
 <statistics>
 <total>
